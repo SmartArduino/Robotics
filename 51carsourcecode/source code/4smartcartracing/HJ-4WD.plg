@@ -1,0 +1,14 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\HL-1智能小车配套资料\3、智能小车参考实验\1、智能小车实验源码(20131115)\4、智能小车巡黑线参考源程序\HJ-4WD.uvproj
+Project File Date:  10/28/2013
+
+<h2>Output:</h2>
+Build target '目标 1'
+linking...
+Program Size: data=15.2 xdata=0 code=409
+creating hex file from "HJ-4WD"...
+"HJ-4WD" - 0 Error(s), 0 Warning(s).

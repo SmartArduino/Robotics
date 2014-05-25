@@ -1,0 +1,348 @@
+C51 COMPILER V9.01   MAIN                                                                  11/14/2013 11:39:41 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**********************»Û¾»µç×ÓÖÇÄÜÐ¡³µÀý³Ì************************
+   2          *  Æ½Ì¨£ºHJ-C51 HJ-1G HL-1 HJ-3G HJ-C52  + Keil uVision4 + STC89C52 + AT89S52
+   3          *  Ãû³Æ£ºHL-1ÖÇÄÜÐ¡³µ³¬Éù²¨²â¾àÀë³ÌÐò
+   4          *  ¹«Ë¾£º»Û¾»µç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
+   5          *  ÌÔ±¦£ºhttp://shop37031453.taobao.com       
+   6          *  ÍøÕ¾£ºwww.hjmcu.com    www.hlmcu.com
+   7          *  ±àÐ´£H
+   8          *  ÈÕÆÚ£º2008-8-08
+   9          *  ÐÞ¸ÄÄÚÈÝ£º´«¸ÐÆ÷IO¿Ú·Ö±ð½Óµ½P3.2 P3.3 ¿Ú£¬Ã¿¸öÐ¡³µµç»ú²Î¿¼¿ÉÄÜ²»Í¬£¬Çë×Ô¼ºµ÷Õû²Î¿¼£¬ÒÔ¸üÎÈ¶¨×ßºÚÏß
+  10          *   QQ : 398115088 121350852
+  11          *  ¾§Õñ:11.0592MHZ
+  12          *  ËµÃ÷£ºÃâ·Ñ¿ªÔ´£¬²»Ìá¹©Ô´´úÂë·ÖÎö£¬ÓÐÎÊÌâÖ±½Óµ½»Û¾»ÂÛÌ³½»Á÷
+  13          *  ÂÛÌ³£º
+  14          *  Ó²¼þÉèÖÃ£ºÒªÓÐ×Ô¼º¶¯ÊÖÄÜÁ¦£¬²ÅÄÜÍê³ÉÊµÑé
+  15          *  Ê¹ÓÃËµÃ÷£º¸ù¾ÝÏÂÃæIO¿Ú×Ô¼ºÓÃ¶Å°îÏßÁ¬½Ó¸÷ÖÖÄ£¿é£¬¿ÉÒÔ×Ô¼ºÐÞ¸Ä¸÷ÖÖÄ£¿éIO¿Ú
+  16          *  ÐèÒª¹ºÂò»Û¾»µç×ÓÖÇÄÜÐ¡³µÏà¹ØÄ£¿é²ÅÄÜ×öÊµÑé--ÇëÖ±½Óµ½»Û¾»ÍøÕ¾¹ºÂò
+  17          *  Ñ§Ï°½¨Òé£ºÇëµ½»Û¾»µç×ÓÑ§Ï°ÍøWWW.HJMCU.COMÃâ·ÑÏÂÔØ52¿Î¡¶´ÓÁãµ½ÏîÄ¿¿ª·¢Ñ§51µ¥Æ¬»úÓëCÓïÑÔ¼¼ÊõÊÓÆµ½Ì³Ì¡· BT
+             -ÏÂÔØ3.63G
+  18             ÖØµãÌáÊ¾£º±¾³ÌÐòÖ»×ö²Î¿¼£¬²»Ìá¹©¼¼ÊõÖ§³Ö£¬Çë×Ô¼ºÑÐ¾¿ÎüÊÕ¡£//ÊÕ»õ5ÐÇºÃÆÀ£¬ºóÃæ¸üÓÐ10G×ÊÁÏÔùËÍ£¬ÍøÉÏÏÂÔØ¡
+             -£
+  19             *  Í¬Ê±Òª½ÓºÃLCD1602 ×¢Òâµ÷½ÚW1¶Ô±È¶È£¬ÓÃµçÄÔUSB¹©µçÊ±µ÷´óÒ»µã£¬ÓÃµç³Ø¹©µçÊ±µ÷Ð¡Ò»µã¶Ô±È¶È¡£
+  20          
+  21             HL-1ÓëHL-1ÖÇÄÜÐ¡³µµÍÅÌ±¾¶Å°îÏß½ÓÏß·½·¨£¬ÇëÒ»¶¨ÕÕ×ö£¬·ñÔò¿ÉÄÜ²»¹¤×÷£¬²¢ÉÕ»ÙÐ¡³µ¡£
+  22          
+  23             J3
+  24             IN1--½Óµ½--ÊµÑé°åÉÏµÄP1.2
+  25             IN2--½Óµ½--ÊµÑé°åÉÏµÄP1.3
+  26             EN1--½Óµ½--ÊµÑé°åÉÏµÄP1.4
+  27             EN2--½Óµ½--ÊµÑé°åÉÏµÄP1.5
+  28             IN3--½Óµ½--ÊµÑé°åÉÏµÄP1.6
+  29             IN4--½Óµ½--ÊµÑé°åÉÏµÄP1.7
+  30             J4 
+  31             IN5--½Óµ½--ÊµÑé°åÉÏµÄP2.1
+  32             IN6--½Óµ½--ÊµÑé°åÉÏµÄP2.0
+  33             J5
+  34             OUT1--½Óµ½--ÊµÑé°åÉÏµÄP3.2
+  35             OUT2--½Óµ½--ÊµÑé°åÉÏµÄP3.3
+  36             OUT3--½Óµ½--ÊµÑé°åÉÏµÄP3.4
+  37             OUT4--½Óµ½--ÊµÑé°åÉÏµÄP3.5
+  38          
+  39             µçÔ´½Ó·¨----Çë×¢ÒâºË¶Ô£¬Ò»¶¨Òª100%ÕýÈ·£¬·ñÔò»áÉÕ»µHL-1ÊµÑé°å
+  40             J17
+  41             VCC--½Óµ½--ÊµÑé°åÉÏµÄ TTL V Òý½Å
+  42             GND--½Óµ½--ÊµÑé°åÉÏµÄ TTL G Òý½Å
+  43          ******************************************************************/
+  44          #include <AT89x51.H>            //Æ÷¼þÅäÖÃÎÄ¼þ
+  45          #include <intrins.h>
+  46          #define  RX  P2_0
+  47          #define  TX  P2_1
+  48          #define LCM_RW  P1_1 //¶¨ÒåLCDÒý½Å
+  49          #define LCM_RS  P1_0
+  50          #define LCM_E   P2_5
+  51          
+  52          #define LCM_Data  P0
+  53          #define Busy    0x80 //ÓÃÓÚ¼ì²âLCM×´Ì¬×ÖÖÐµÄBusy±êÊ¶
+C51 COMPILER V9.01   MAIN                                                                  11/14/2013 11:39:41 PAGE 2   
+
+  54          sbit DU = P2^6;
+  55          sbit WE = P2^7;
+  56          void cmg88()//¹ØÊýÂë¹Ü
+  57          {
+  58   1      DU=1;  
+  59   1      P0=0X00;
+  60   1      DU=0;
+  61   1      }
+  62          
+  63          void LCMInit(void);//LCD³õÊ¼»¯º¯Êý
+  64          void DisplayOneChar(unsigned char X, unsigned char Y, unsigned char DData);//LCDÏÔÊ¾Ò»¸ö×Ö·ûº¯Êý
+  65          void DisplayListChar(unsigned char X, unsigned char Y, unsigned char code *DData);//LCDÏÔÊ¾Ò»¸ö×Ö·û´®º¯Êý
+  66          void Delay5Ms(void);//ÑÓÊ±5ºÁÃëº¯Êý
+  67          void Delay400Ms(void);//ÑÓÊ±400ºÁÃëº¯Êý
+  68          void Decode(unsigned char ScanCode);
+  69          void WriteDataLCM(unsigned char WDLCM);//LCD1602Ð´Êý¾Ýº¯Êý
+  70          void WriteCommandLCM(unsigned char WCLCM,BuysC);//LCDÐ´ÃüÁîº¯Êý
+  71          
+  72          //unsigned char ReadDataLCM(void);
+  73          unsigned char ReadStatusLCM(void);
+  74          unsigned char code Range[] ="==Range Finder==";//LCD1602ÏÔÊ¾¸ñÊ½
+  75          unsigned char code ASCII[13] = "0123456789.-M";
+  76          unsigned char code table[]="Distance:000.0cm";
+  77          unsigned char code table1[]="!!! Out of range";
+  78          
+  79          //static unsigned char DisNum = 0; //ÏÔÊ¾ÓÃÖ¸Õë                           
+  80          unsigned int  time=0;
+  81          unsigned long S=0;
+  82          bit  flag =0;
+  83          unsigned char disbuff[4]={ 0,0,0,0,};
+  84          
+  85          //Ð´Êý¾Ý
+  86          void WriteDataLCM(unsigned char WDLCM) 
+  87          {
+  88   1              ReadStatusLCM(); //¼ì²âÃ¦
+  89   1              LCM_Data = WDLCM;
+  90   1              LCM_RS = 1;
+  91   1              LCM_RW = 0;
+  92   1              LCM_E = 0; //Èô¾§ÕñËÙ¶ÈÌ«¸ß¿ÉÒÔÔÚÕâºó¼ÓÐ¡µÄÑÓÊ±
+  93   1              LCM_E = 0; //ÑÓÊ±
+  94   1              LCM_E = 1;
+  95   1      }
+  96          
+  97          //Ð´Ö¸Áî
+  98          void WriteCommandLCM(unsigned char WCLCM,BuysC) //BuysCÎª0Ê±ºöÂÔÃ¦¼ì²â
+  99          {
+ 100   1              if (BuysC) ReadStatusLCM(); //¸ù¾ÝÐèÒª¼ì²âÃ¦
+ 101   1              LCM_Data = WCLCM;
+ 102   1              LCM_RS = 0;
+ 103   1              LCM_RW = 0;     
+ 104   1              LCM_E = 0;
+ 105   1              LCM_E = 0;
+ 106   1              LCM_E = 1;      
+ 107   1      }
+ 108          
+ 109          //¶ÁÊý¾Ý
+ 110          /*unsigned char ReadDataLCM(void)
+ 111          {
+ 112                  LCM_RS = 1; 
+ 113                  LCM_RW = 1;
+ 114                  LCM_E = 0;
+ 115                  LCM_E = 0;
+C51 COMPILER V9.01   MAIN                                                                  11/14/2013 11:39:41 PAGE 3   
+
+ 116                  LCM_E = 1;
+ 117                  return(LCM_Data);
+ 118          }*/
+ 119          
+ 120          //¶Á×´Ì¬
+ 121          unsigned char ReadStatusLCM(void)
+ 122          {
+ 123   1              LCM_Data = 0xFF; 
+ 124   1              LCM_RS = 0;
+ 125   1              LCM_RW = 1;
+ 126   1              LCM_E = 0;
+ 127   1              LCM_E = 0;
+ 128   1              LCM_E = 1;
+ 129   1              while (LCM_Data & Busy); //¼ì²âÃ¦ÐÅºÅ
+ 130   1              return(LCM_Data);
+ 131   1      }
+ 132          
+ 133          void LCMInit(void) //LCM³õÊ¼»¯
+ 134          {
+ 135   1              LCM_Data = 0;
+ 136   1              WriteCommandLCM(0x38,0); //Èý´ÎÏÔÊ¾Ä£Ê½ÉèÖÃ£¬²»¼ì²âÃ¦ÐÅºÅ
+ 137   1              Delay5Ms(); 
+ 138   1              WriteCommandLCM(0x38,0);
+ 139   1              Delay5Ms(); 
+ 140   1              WriteCommandLCM(0x38,0);
+ 141   1              Delay5Ms(); 
+ 142   1      
+ 143   1              WriteCommandLCM(0x38,1); //ÏÔÊ¾Ä£Ê½ÉèÖÃ,¿ªÊ¼ÒªÇóÃ¿´Î¼ì²âÃ¦ÐÅºÅ
+ 144   1              WriteCommandLCM(0x08,1); //¹Ø±ÕÏÔÊ¾
+ 145   1              WriteCommandLCM(0x01,1); //ÏÔÊ¾ÇåÆÁ
+ 146   1              WriteCommandLCM(0x06,1); // ÏÔÊ¾¹â±êÒÆ¶¯ÉèÖÃ
+ 147   1              WriteCommandLCM(0x0c,1); // ÏÔÊ¾¿ª¼°¹â±êÉèÖÃ
+ 148   1      }
+ 149          
+ 150          //°´Ö¸¶¨Î»ÖÃÏÔÊ¾Ò»¸ö×Ö·û
+ 151          void DisplayOneChar(unsigned char X, unsigned char Y, unsigned char DData)
+ 152          {
+ 153   1              Y &= 0x1;
+ 154   1              X &= 0xF; //ÏÞÖÆX²»ÄÜ´óÓÚ15£¬Y²»ÄÜ´óÓÚ1
+ 155   1              if (Y) X |= 0x40; //µ±ÒªÏÔÊ¾µÚ¶þÐÐÊ±µØÖ·Âë+0x40;
+ 156   1              X |= 0x80; //Ëã³öÖ¸ÁîÂë
+ 157   1              WriteCommandLCM(X, 1); //·¢ÃüÁî×Ö
+ 158   1              WriteDataLCM(DData); //·¢Êý¾Ý
+ 159   1      }
+ 160          
+ 161          //°´Ö¸¶¨Î»ÖÃÏÔÊ¾Ò»´®×Ö·û
+ 162          void DisplayListChar(unsigned char X, unsigned char Y, unsigned char code *DData)
+ 163          {
+ 164   1              unsigned char ListLength;
+ 165   1      
+ 166   1        ListLength = 0;
+ 167   1              Y &= 0x1;
+ 168   1              X &= 0xF; //ÏÞÖÆX²»ÄÜ´óÓÚ15£¬Y²»ÄÜ´óÓÚ1
+ 169   1              while (DData[ListLength]>0x19) //Èôµ½´ï×Ö´®Î²ÔòÍË³ö
+ 170   1                      {
+ 171   2                              if (X <= 0xF) //X×ø±êÓ¦Ð¡ÓÚ0xF
+ 172   2                                      {
+ 173   3                                              DisplayOneChar(X, Y, DData[ListLength]); //ÏÔÊ¾µ¥¸ö×Ö·û
+ 174   3                                              ListLength++;
+ 175   3                                              X++;
+ 176   3                                      }
+ 177   2                      }
+C51 COMPILER V9.01   MAIN                                                                  11/14/2013 11:39:41 PAGE 4   
+
+ 178   1      }
+ 179          
+ 180          //5msÑÓÊ±
+ 181          void Delay5Ms(void)
+ 182          {
+ 183   1              unsigned int TempCyc = 5552;
+ 184   1              while(TempCyc--);
+ 185   1      }
+ 186          
+ 187          //400msÑÓÊ±
+ 188          void Delay400Ms(void)
+ 189          {
+ 190   1              unsigned char TempCycA = 5;
+ 191   1              unsigned int TempCycB;
+ 192   1              while(TempCycA--)
+ 193   1                      {
+ 194   2                              TempCycB=7269;
+ 195   2                              while(TempCycB--);
+ 196   2                      };
+ 197   1      }
+ 198          /********************************************************/
+ 199              void Conut(void)                    //³¬Éù²¨¾àÀë¼ÆËãº¯Êý
+ 200                  {
+ 201   1               time=TH0*256+TL0;
+ 202   1               TH0=0;
+ 203   1               TL0=0;
+ 204   1              
+ 205   1               S=(time*1.7)/10+10;     //Ëã³öÀ´ÊÇMM
+ 206   1               if((S>=7000)||flag==1) //³¬³ö²âÁ¿·¶Î§
+ 207   1               {       
+ 208   2                flag=0;
+ 209   2            DisplayListChar(0, 1, table1);
+ 210   2               }
+ 211   1               else
+ 212   1               {
+ 213   2            disbuff[0]=S%10;
+ 214   2                disbuff[1]=S/10%10;
+ 215   2                disbuff[2]=S/100%10;
+ 216   2                disbuff[3]=S/1000;
+ 217   2                DisplayListChar(0, 1, table);
+ 218   2                DisplayOneChar(9, 1, ASCII[disbuff[3]]);
+ 219   2                DisplayOneChar(10, 1, ASCII[disbuff[2]]);     
+ 220   2                DisplayOneChar(11, 1, ASCII[disbuff[1]]);
+ 221   2            DisplayOneChar(12, 1, ASCII[10]);
+ 222   2                DisplayOneChar(13, 1, ASCII[disbuff[0]]);
+ 223   2               }
+ 224   1              }
+ 225          /********************************************************/
+ 226               void zd0() interrupt 1              //T0ÖÐ¶ÏÓÃÀ´¼ÆÊýÆ÷Òç³ö,³¬¹ý²â¾à·¶Î§
+ 227            {
+ 228   1          flag=1;                      //ÖÐ¶ÏÒç³ö±êÖ¾
+ 229   1              RX=0;
+ 230   1        }
+ 231          /********************************************************/
+ 232               void  StartModule()                         //Æô¶¯Ä£¿é
+ 233            {
+ 234   1                TX=1;                                      //Æô¶¯Ò»´ÎÄ£¿é
+ 235   1                _nop_(); 
+ 236   1                _nop_(); 
+ 237   1                _nop_(); 
+ 238   1                _nop_(); 
+ 239   1                _nop_(); 
+C51 COMPILER V9.01   MAIN                                                                  11/14/2013 11:39:41 PAGE 5   
+
+ 240   1                _nop_(); 
+ 241   1                _nop_(); 
+ 242   1                _nop_(); 
+ 243   1                _nop_(); 
+ 244   1                _nop_(); 
+ 245   1                _nop_(); 
+ 246   1                _nop_(); 
+ 247   1                _nop_(); 
+ 248   1                _nop_(); 
+ 249   1                _nop_(); 
+ 250   1                _nop_(); 
+ 251   1                _nop_();
+ 252   1                _nop_(); 
+ 253   1                _nop_(); 
+ 254   1                _nop_(); 
+ 255   1                _nop_();
+ 256   1                TX=0;
+ 257   1        }
+ 258          /********************************************************/ 
+ 259          /*void delayms(unsigned int ms)
+ 260          {
+ 261                  unsigned char i=100,j;
+ 262                  for(;ms;ms--)
+ 263                  {
+ 264                          while(--i)
+ 265                          {
+ 266                                  j=10;
+ 267                                  while(--j);
+ 268                          }
+ 269                  }
+ 270          }*/
+ 271          void Timer_Count(void)                     //³¬Éù²¨¸ßµçÆ½Âö³å¿í¶È¼ÆËãº¯Êý
+ 272          {
+ 273   1                       TR0=1;                     //¿ªÆô¼ÆÊý
+ 274   1                   while(RX);                 //µ±RXÎª1¼ÆÊý²¢µÈ´ý
+ 275   1                   TR0=0;                             //¹Ø±Õ¼ÆÊý
+ 276   1               Conut();                       //¼ÆËã
+ 277   1      
+ 278   1      }
+ 279          /*********************************************************/
+ 280          void main(void)
+ 281          {
+ 282   1          unsigned int valA;
+ 283   1              Delay400Ms(); //Æô¶¯µÈ´ý£¬µÈLCM½²Èë¹¤×÷×´Ì¬
+ 284   1              cmg88();//¹ØÊýÂë¹Ü
+ 285   1              LCMInit(); //LCM³õÊ¼»¯
+ 286   1              Delay5Ms(); //ÑÓÊ±Æ¬¿Ì
+ 287   1              DisplayListChar(0, 0, Range);
+ 288   1              DisplayListChar(0, 1, table);
+ 289   1              //ReadDataLCM();//²âÊÔÓÃ¾äÎÞÒâÒå
+ 290   1          TMOD=0x01;//ÉèT0Îª·½Ê½1£¬GATE=1£»
+ 291   1          EA=1;                   //¿ªÆô×ÜÖÐ¶Ï        
+ 292   1          TH0=0;
+ 293   1          TL0=0;          
+ 294   1          ET0=1;             //ÔÊÐíT0ÖÐ¶Ï
+ 295   1                                                      
+ 296   1              while(1)
+ 297   1                {
+ 298   2                      RX=1;
+ 299   2                  StartModule();               //Æô¶¯Ä£¿é
+ 300   2              for(valA=7510;valA>0;valA--)
+ 301   2                  {
+C51 COMPILER V9.01   MAIN                                                                  11/14/2013 11:39:41 PAGE 6   
+
+ 302   3                         
+ 303   3                     if(RX==1)
+ 304   3                         {
+ 305   4                 Timer_Count();                //³¬Éù²¨¸ßµçÆ½Âö³å¿í¶È¼ÆËãº¯Êý
+ 306   4                         }
+ 307   3               }
+ 308   2                }
+ 309   1      }
+ 310          
+ 311          
+ 312          
+ 313                          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    667    ----
+   CONSTANT SIZE    =     64    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

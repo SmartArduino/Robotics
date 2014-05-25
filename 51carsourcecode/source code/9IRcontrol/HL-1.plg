@@ -1,0 +1,21 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\HL-1智能小车配套资料\1、必看视频教程及学习步骤\31、扩展篇7 用红外遥控器遥控智能小车【另购】\智能小车红外遥控程序\HL-1.uvproj
+Project File Date:  11/12/2013
+
+<h2>Output:</h2>
+Build target '目标 1'
+linking...
+Program Size: data=33.0 xdata=0 code=878
+creating hex file from "HL-1"...
+"HL-1" - 0 Error(s), 0 Warning(s).
+Build target '目标 1'
+compiling main.c...
+MAIN.C(165): warning C206: 'leftrun': missing function-prototype
+linking...
+Program Size: data=33.0 xdata=0 code=878
+creating hex file from "HL-1"...
+"HL-1" - 0 Error(s), 1 Warning(s).

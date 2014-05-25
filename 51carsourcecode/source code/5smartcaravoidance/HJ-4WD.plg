@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\HL-1智能小车配套资料\3、智能小车参考实验\1、智能小车实验源码(20131115)\5、智能小车红外避障程序-PWM加强版\HJ-4WD.uvproj
+Project File Date:  10/28/2013
+
+<h2>Output:</h2>
+Build target '目标 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BACKRUN?MAIN
+Program Size: data=15.2 xdata=0 code=424
+creating hex file from "HJ-4WD"...
+"HJ-4WD" - 0 Error(s), 1 Warning(s).

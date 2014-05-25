@@ -1,0 +1,211 @@
+C51 COMPILER V9.01   MAIN                                                                  01/02/2014 16:17:25 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*****************HL-1慧净蓝牙智能小车例程*****************
+   2          *  平台：HJ-4WD/HJ-E/HL-1智能小车 + Keil U4 + STC89C52
+   3          *  名称：
+   4          *  公司：慧净电子科技有限公司
+   5          *  淘宝：http://shop37031453.taobao.com       
+   6          *  网站：www.hjmcu.com  智能小车专用网站：WWW.HLMCU.COM
+   7          *  编写：
+   8          *  日期：2008-8-08
+   9          *  交流:智能车QQ:1526248688  开发板QQ:398115088
+  10          *  晶振:11.0592MHZ
+  11          *  说明：免费开源，不提供源代码分析，有问题直接到慧净论坛交流
+  12          *  论坛：http://hjdz.haotui.com 
+  13          *  免费结缘：5星好评赠送18个资料包，追加评价后再加送20G资料，网上网盘下载
+  14          *  视频教程：本小车配套详细视频教程，有需要请到慧净网站免费下载
+  15          ******************************************************************/
+  16              // 本程序不输入PWM小车就能全速度运行。
+  17              //按下慧净专用红外摇控器前进按键启动小车，（位置请看红外摇控器编码说明图）
+  18                  //按下慧净专用红外摇控器停止健可以停止小车      
+  19                  //注意程序只做参考之用，要达到最理想的效果，还需要同学们细心调试。
+  20                  //注意事项，一定要把P3.2IO口上的杜邦线取下。
+  21                          
+  22          #include<AT89x51.H>
+  23          
+  24              #define Left_moto_go      {P1_2=0,P1_3=1;}    //左边电机向前走
+  25                  #define Left_moto_back    {P1_2=1,P1_3=0;}    //左边电机向后转
+  26                  #define Left_moto_Stop    {P1_2=0,P1_3=0;}    //左边电机停转                     
+  27                  #define Right_moto_go     {P1_6=1,P1_7=0;}      //右边电机向前走
+  28                  #define Right_moto_back   {P1_6=0,P1_7=1;}      //右边电机向后走
+  29                  #define Right_moto_Stop   {P1_6=0,P1_7=0;}      //右边电机停转  
+  30          
+  31              #define Imax 14000    //此处为晶振为11.0592时的取值, 
+  32              #define Imin 8000    //如用其它频率的晶振时,
+  33              #define Inum1 1450    //要改变相应的取值。
+  34              #define Inum2 700 
+  35              #define Inum3 3000 
+  36          
+  37                  unsigned char f=0;
+  38              unsigned char Im[4]={0x00,0x00,0x00,0x00};
+  39              unsigned char show[2]={0,0};
+  40              unsigned long m,Tc;
+  41              unsigned char IrOK;
+  42          
+  43             
+  44          /************************************************************************/      
+  45          //延时函数      
+  46             void delay(unsigned int k)
+  47          {    
+  48   1           unsigned int x,y;
+  49   1               for(x=0;x<k;x++) 
+  50   1                 for(y=0;y<2000;y++);
+  51   1      }
+  52          /************************************************************************/      
+  53          //外部中断解码程序
+  54            void intersvr0(void) interrupt 1 using 1
+  55          {
+C51 COMPILER V9.01   MAIN                                                                  01/02/2014 16:17:25 PAGE 2   
+
+  56   1          Tc=TH0*256+TL0;                                               //提取中断时间间隔时长
+  57   1          TH0=0; 
+  58   1          TL0=0;              //定时中断重新置零
+  59   1       if((Tc>Imin)&&(Tc<Imax))
+  60   1            { 
+  61   2              m=0;
+  62   2              f=1;
+  63   2              return;
+  64   2            }       //找到启始码
+  65   1      
+  66   1         if(f==1)
+  67   1            {
+  68   2              if(Tc>Inum1&&Tc<Inum3) 
+  69   2          {
+  70   3         Im[m/8]=Im[m/8]>>1|0x80; m++; 
+  71   3             }
+  72   2            if(Tc>Inum2&&Tc<Inum1) 
+  73   2              {
+  74   3               Im[m/8]=Im[m/8]>>1; m++; //取码
+  75   3        }
+  76   2        if(m==32) 
+  77   2         {
+  78   3               m=0;  
+  79   3               f=0;
+  80   3               if(Im[2]==~Im[3]) 
+  81   3            {
+  82   4                 IrOK=1; 
+  83   4         }
+  84   3              else IrOK=0;   //取码完成后判断读码是否正确
+  85   3           }
+  86   2                     //准备读下一码
+  87   2         }
+  88   1       
+  89   1      }
+  90          /************************************************************************/
+  91          //前速前进
+  92               void  run(void)
+  93          {
+  94   1          
+  95   1               Left_moto_go ;   //左电机往前走
+  96   1               Right_moto_go ;  //右电机往前走
+  97   1      }
+  98          
+  99          //前速后退
+ 100               void  backrun(void)
+ 101          {
+ 102   1          
+ 103   1               Left_moto_back ;   //左电机后退
+ 104   1               Right_moto_back ;  //右电机后退
+ 105   1      }
+ 106          
+ 107          //右转
+ 108               void  rightrun(void)
+ 109          {
+ 110   1          
+ 111   1               Left_moto_go ;   //左电机前进
+ 112   1               Right_moto_Stop ;  //右电机停止
+ 113   1      }
+ 114          
+ 115          //左转
+ 116               void  Leftrun(void)
+ 117          {
+C51 COMPILER V9.01   MAIN                                                                  01/02/2014 16:17:25 PAGE 3   
+
+ 118   1          
+ 119   1               Left_moto_Stop ;   //左电机停止
+ 120   1               Right_moto_go ;  //右电机前进
+ 121   1      }
+ 122          //STOP
+ 123               void  stoprun(void)
+ 124          {
+ 125   1          
+ 126   1               Left_moto_Stop ;   //左电机停止
+ 127   1               Right_moto_Stop ;  //右电机停止
+ 128   1      }
+ 129          
+ 130          
+ 131          /*********************************************************************/          
+ 132          /*--主函数--*/
+ 133                  void main(void)
+ 134          {
+ 135   1               
+ 136   1          m=0;
+ 137   1          f=0;
+ 138   1      
+ 139   1          IT0=1;
+ 140   1          EX0=1;
+ 141   1       
+ 142   1          TMOD=0x11;  
+ 143   1          TH0=0;
+ 144   1              TL0=0;
+ 145   1          TR0=1;
+ 146   1              EA=1;
+ 147   1      
+ 148   1      
+ 149   1      
+ 150   1              
+ 151   1              delay(100);        
+ 152   1      
+ 153   1      
+ 154   1              while(1)                                                        /*无限循环*/
+ 155   1              { 
+ 156   2      
+ 157   2                  if(IrOK==1) 
+ 158   2           {
+ 159   3                      switch(Im[2])
+ 160   3                      {
+ 161   4           case 0x18:  run();                              //前进
+ 162   4                   break;
+ 163   4           case 0x52:  backrun();                      //后退  
+ 164   4                   break;
+ 165   4           case 0x08:  leftrun();                      //左转
+*** WARNING C206 IN LINE 165 OF MAIN.C: 'leftrun': missing function-prototype
+ 166   4                   break;
+ 167   4               case 0x5A:  rightrun();                         //右转
+ 168   4                   break;
+ 169   4               case 0x1C:  stoprun();                      //停止
+ 170   4                   break;
+ 171   4               default:break;
+ 172   4      
+ 173   4                      }
+ 174   3      
+ 175   3                 IrOK=0;
+ 176   3           }
+ 177   2               
+ 178   2                                               
+C51 COMPILER V9.01   MAIN                                                                  01/02/2014 16:17:25 PAGE 4   
+
+ 179   2               }
+ 180   1      }
+ 181                          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    495    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

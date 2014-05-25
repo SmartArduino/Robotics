@@ -1,0 +1,102 @@
+C51 COMPILER V9.01   MAIN                                                                  01/02/2014 11:27:00 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*****************HL-1慧净蓝牙智能小车例程*****************
+   2          *  平台：HJ-4WD/HJ-E/HL-1智能小车 + Keil U4 + STC89C52
+   3          *  名称：
+   4          *  公司：慧净电子科技有限公司
+   5          *  淘宝：http://shop37031453.taobao.com       
+   6          *  网站：www.hjmcu.com  智能小车专用网站：WWW.HLMCU.COM
+   7          *  编写：慧净
+   8          *  日期：2008-8-08
+   9          *  交流:智能车QQ:1526248688  开发板QQ:398115088
+  10          *  晶振:11.0592MHZ
+  11          *  说明：免费开源，不提供源代码分析，有问题直接到慧净论坛交流
+  12          *  论坛：http://hjdz.haotui.com 
+  13          *  免费结缘：5星好评赠送18个资料包，追加评价后再加送20G资料，网上网盘下载
+  14          *  视频教程：本小车配套详细视频教程，有需要请到慧净网站免费下载
+  15          ******************************************************************/
+  16              //按下K4按键，1秒左右启电小车（注意不要接入测速模块）
+  17                  //按下复位健可以停止小车        
+  18                  //注意程序只做参考之用，要达到最理想的效果，还需要同学们细心调试。      
+  19                  #include<AT89X52.H>                   //包含51单片机头文件，内部有各种寄存器定义
+  20                  #include<HJ-4WD_PWM.H>            //包含HL-1蓝牙智能小车驱动IO口定义等函数
+  21              
+  22          //主函数
+  23                  void main(void)
+  24          {       
+  25   1      
+  26   1              unsigned char i;
+  27   1          P1=0X00; //关电车电机       
+  28   1      //本实验学习的按键启动知识          
+  29   1      B:              for(i=0;i<50;i++) //判断K4是否按下
+  30   1                      {
+  31   2                         delay(1);    //1ms内判断50次，如果其中有一次被判断到K4没按下，便重新检测
+  32   2                         if(P3_7!=0)//当K4按下时，启动小车前进，如有不明，请看慧净51单片机视频教程
+  33   2                         goto B; //跳转到标号B，重新检测  
+  34   2                      } 
+  35   1      //本实验学习的知识蜂鸣器，注意要在HJ-4WD头文件里定义IO口
+  36   1                   BUZZ=0;    //50次检测K4确认是按下之后，蜂鸣器发出“滴”声响，然后启动小车。
+  37   1                   delay(50);
+  38   1                   BUZZ=1;//响50ms后关闭蜂鸣器
+  39   1      
+  40   1                              TMOD=0X01;
+  41   1                      TH0= 0XFc;                //1ms定时
+  42   1                      TL0= 0X18;
+  43   1                      TR0= 1;
+  44   1                      ET0= 1;
+  45   1                      EA = 1;              //开总中断
+  46   1              while(1)        //无限循环
+  47   1              { 
+  48   2               
+  49   2                               //有信号为0  没有信号为1
+  50   2      
+  51   2                    if(Left_1_led==1&&Right_1_led==1)
+  52   2      
+  53   2                                run();         //调用前进函数
+  54   2      
+  55   2                                else
+C51 COMPILER V9.01   MAIN                                                                  01/02/2014 11:27:00 PAGE 2   
+
+  56   2                               {                        
+  57   3                                            if(Left_1_led==1&&Right_1_led==0)     //右边检测到红外信号
+  58   3                                       {
+  59   4                                                leftrun();      //调用小车左转函数
+  60   4      
+  61   4                                   }
+  62   3                                 
+  63   3                                                if(Right_1_led==1&&Left_1_led==0)             //左边检测到红外信号
+  64   3                                        {       
+  65   4                                            rightrun();        //调用小车右转函数
+  66   4      
+  67   4                                        }
+  68   3                                                                      if(Right_1_led==0&&Left_1_led==0)               //两边传感器同时检测到红外
+  69   3                                        {       
+  70   4                                          //backrun();                //调用电机后退函数
+  71   4                                              //delay(50);            //后退50毫秒
+  72   4                                              //rightrun();           //调用电机右转函数
+  73   4                                              //delay(30);
+  74   4                                        }
+  75   3                              }        
+  76   2               }
+  77   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    257    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

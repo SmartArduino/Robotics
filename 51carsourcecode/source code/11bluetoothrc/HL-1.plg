@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\HL-1智能小车配套资料\1、必看视频教程及学习步骤\33、扩展篇9 手机蓝牙控制智能小车【另购】\智能小车蓝牙无线控制实验\HL-1.uvproj
+Project File Date:  11/12/2013
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+Program Size: data=16.2 xdata=0 code=592
+creating hex file from "HL-1"...
+"HL-1" - 0 Error(s), 1 Warning(s).
+Build target '目标 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+Program Size: data=16.2 xdata=0 code=592
+creating hex file from "HL-1"...
+"HL-1" - 0 Error(s), 1 Warning(s).

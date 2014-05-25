@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\HL-1智能小车配套资料\1、必看视频教程及学习步骤\32、扩展篇8 PT2272无线遥控智能车程序【另购】\智能小车PT2272无线控制实验\HL-1.uvproj
+Project File Date:  11/12/2013
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=0 code=165
+creating hex file from "HL-1"...
+"HL-1" - 0 Error(s), 0 Warning(s).

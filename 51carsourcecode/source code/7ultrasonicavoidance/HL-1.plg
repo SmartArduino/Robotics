@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\HL-1智能小车配套资料\1、必看视频教程及学习步骤\30、扩展篇6 51智能车超声波避障碍实验\智能车超声波避障碍程序（LCD1602显示）\HL-1.uvproj
+Project File Date:  11/13/2013
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling main.c...
+MAIN.C(93): warning C280: 'Speed_Right': unreferenced local variable
+MAIN.C(93): warning C280: 'Speed_Left': unreferenced local variable
+MAIN.C(111): warning C280: 'Speed_Right': unreferenced local variable
+MAIN.C(111): warning C280: 'Speed_Left': unreferenced local variable
+linking...
+Program Size: data=28.2 xdata=0 code=1741
+creating hex file from "HL-1"...
+"HL-1" - 0 Error(s), 4 Warning(s).

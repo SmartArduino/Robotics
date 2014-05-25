@@ -1,0 +1,236 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/02/2014  16:17:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE main.obj TO HL-1 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?ULDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?ULCMP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  HL-1 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            REG     0008H     0008H     ABSOLUTE     "REG BANK 1"
+            DATA    0010H     0010H     UNIT         ?DT?MAIN
+            IDATA   0020H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     014BH     UNIT         ?PR?INTERSVR0?MAIN
+            CODE    0159H     00DFH     UNIT         ?C?LIB_CODE
+            CODE    0238H     008CH     UNIT         ?C_C51STARTUP
+            CODE    02C4H     0057H     UNIT         ?PR?MAIN?MAIN
+            CODE    031BH     0020H     UNIT         ?PR?_DELAY?MAIN
+            CODE    033BH     000EH     UNIT         ?C_INITSEG
+            CODE    0349H     0009H     UNIT         ?PR?RUN?MAIN
+            CODE    0352H     0009H     UNIT         ?PR?BACKRUN?MAIN
+            CODE    035BH     0009H     UNIT         ?PR?RIGHTRUN?MAIN
+            CODE    0364H     0009H     UNIT         ?PR?LEFTRUN?MAIN
+            CODE    036DH     0009H     UNIT         ?PR?STOPRUN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   HL-1 (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?_DELAY?MAIN
+  +--> ?PR?RUN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2014  16:17:25  PAGE 2
+
+
+  +--> ?PR?BACKRUN?MAIN
+  +--> ?PR?LEFTRUN?MAIN
+  +--> ?PR?RIGHTRUN?MAIN
+  +--> ?PR?STOPRUN?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  HL-1 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  C:031BH         PUBLIC        _delay
+  B:0090H.2       PUBLIC        P1_2
+  B:0090H.3       PUBLIC        P1_3
+  B:0090H.6       PUBLIC        P1_6
+  B:0090H.7       PUBLIC        P1_7
+  C:036DH         PUBLIC        stoprun
+  C:02C4H         PUBLIC        main
+  C:000EH         PUBLIC        intersvr0
+  D:0089H         PUBLIC        TMOD
+  D:0010H         PUBLIC        Im
+  D:0014H         PUBLIC        Tc
+  D:0018H         PUBLIC        show
+  D:008CH         PUBLIC        TH0
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  D:008AH         PUBLIC        TL0
+  C:0349H         PUBLIC        run
+  D:001AH         PUBLIC        IrOK
+  B:0088H.4       PUBLIC        TR0
+  C:0364H         PUBLIC        Leftrun
+  D:001BH         PUBLIC        f
+  C:0352H         PUBLIC        backrun
+  D:001CH         PUBLIC        m
+  C:035BH         PUBLIC        rightrun
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        k
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:031BH         LINE#         46
+  C:031BH         LINE#         47
+  C:031BH         LINE#         49
+  C:0325H         LINE#         50
+  C:033AH         LINE#         51
+  -------         ENDPROC       _DELAY
+  -------         PROC          INTERSVR0
+  C:000EH         LINE#         54
+  C:001BH         LINE#         56
+  C:0032H         LINE#         57
+  C:0034H         LINE#         58
+  C:0036H         LINE#         59
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2014  16:17:25  PAGE 3
+
+
+  C:0057H         LINE#         60
+  C:0057H         LINE#         61
+  C:0063H         LINE#         62
+  C:0069H         LINE#         64
+  C:0069H         LINE#         66
+  C:0072H         LINE#         67
+  C:0072H         LINE#         68
+  C:0094H         LINE#         69
+  C:0094H         LINE#         70
+  C:00CDH         LINE#         71
+  C:00CDH         LINE#         72
+  C:00F0H         LINE#         73
+  C:00F0H         LINE#         74
+  C:0122H         LINE#         75
+  C:0122H         LINE#         76
+  C:0136H         LINE#         77
+  C:0136H         LINE#         78
+  C:013EH         LINE#         79
+  C:0140H         LINE#         80
+  C:0146H         LINE#         81
+  C:0146H         LINE#         82
+  C:0149H         LINE#         83
+  C:014BH         LINE#         84
+  C:014EH         LINE#         85
+  C:014EH         LINE#         87
+  C:014EH         LINE#         89
+  -------         ENDPROC       INTERSVR0
+  -------         PROC          RUN
+  C:0349H         LINE#         92
+  C:0349H         LINE#         93
+  C:0349H         LINE#         95
+  C:034DH         LINE#         96
+  C:0351H         LINE#         97
+  -------         ENDPROC       RUN
+  -------         PROC          BACKRUN
+  C:0352H         LINE#         100
+  C:0352H         LINE#         101
+  C:0352H         LINE#         103
+  C:0356H         LINE#         104
+  C:035AH         LINE#         105
+  -------         ENDPROC       BACKRUN
+  -------         PROC          RIGHTRUN
+  C:035BH         LINE#         108
+  C:035BH         LINE#         109
+  C:035BH         LINE#         111
+  C:035FH         LINE#         112
+  C:0363H         LINE#         113
+  -------         ENDPROC       RIGHTRUN
+  -------         PROC          LEFTRUN
+  C:0364H         LINE#         116
+  C:0364H         LINE#         117
+  C:0364H         LINE#         119
+  C:0368H         LINE#         120
+  C:036CH         LINE#         121
+  -------         ENDPROC       LEFTRUN
+  -------         PROC          STOPRUN
+  C:036DH         LINE#         123
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2014  16:17:25  PAGE 4
+
+
+  C:036DH         LINE#         124
+  C:036DH         LINE#         126
+  C:0371H         LINE#         127
+  C:0375H         LINE#         128
+  -------         ENDPROC       STOPRUN
+  -------         PROC          MAIN
+  C:02C4H         LINE#         133
+  C:02C4H         LINE#         134
+  C:02C4H         LINE#         136
+  C:02CDH         LINE#         137
+  C:02CFH         LINE#         139
+  C:02D1H         LINE#         140
+  C:02D3H         LINE#         142
+  C:02D6H         LINE#         143
+  C:02D8H         LINE#         144
+  C:02DAH         LINE#         145
+  C:02DCH         LINE#         146
+  C:02DEH         LINE#         151
+  C:02E4H         LINE#         154
+  C:02E4H         LINE#         155
+  C:02E4H         LINE#         157
+  C:02E9H         LINE#         158
+  C:02E9H         LINE#         159
+  C:02FFH         LINE#         160
+  C:02FFH         LINE#         161
+  C:0302H         LINE#         162
+  C:0304H         LINE#         163
+  C:0307H         LINE#         164
+  C:0309H         LINE#         165
+  C:030CH         LINE#         166
+  C:030EH         LINE#         167
+  C:0311H         LINE#         168
+  C:0313H         LINE#         169
+  C:0316H         LINE#         170
+  C:0316H         LINE#         171
+  C:0316H         LINE#         173
+  C:0316H         LINE#         175
+  C:0319H         LINE#         176
+  C:0319H         LINE#         179
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?ULDIV
+  C:0195H         PUBLIC        ?C?ULDIV
+  -------         ENDMOD        ?C?ULDIV
+
+  -------         MODULE        ?C?ULCMP
+  C:0227H         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+Program Size: data=33.0 xdata=0 code=878
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

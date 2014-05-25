@@ -1,0 +1,128 @@
+C51 COMPILER V9.01   MAIN                                                                  01/02/2014 16:29:18 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*============================================================
+   2          A键被按下  小车前进     B键被按下小车左转   C键被按下小车右转  D键被按下 小车后退    C D键同时被按下小车停
+             -止
+   3          =============================================================*/
+   4          /******************************定义头文件*************************/
+   5          #include <AT89X52.h>
+   6          #define uchar unsigned char
+   7          #define uint unsigned int
+   8          /*****************************IO口定义****************************/
+   9          sbit EN1 = P1^4;                        //右轮调速
+  10          sbit EN2 = P1^5;                        //左轮调速
+  11          
+  12          sbit IN1 = P1^2;                         /*电机正反转逻辑控制端*/
+  13          sbit IN2 = P1^3;
+  14          sbit IN3 = P1^6;
+  15          sbit IN4 = P1^7;
+  16          
+  17          sbit Key_B = P0^7;                       //B键信号端      对应D0
+  18          sbit Key_D = P0^6;                      //D键信号端               对应D1
+  19          sbit Key_A = P0^5;                      //A键信号端               对应D2
+  20          sbit Key_C = P0^4;                      //C键信号端               对应D3
+  21          
+  22          /**************************子函数定义****************************/
+  23          void forward()                     //前进函数
+  24          {
+  25   1           IN1=0;             //左电机
+  26   1               IN2=1;
+  27   1               IN3=1;         //右电机
+  28   1               IN4=0;
+  29   1               EN1=1;
+  30   1               EN2=1; 
+  31   1      }
+  32          
+  33          void back()                                     //后退函数
+  34          {
+  35   1           IN1=1;             //左电机
+  36   1               IN2=0;
+  37   1               IN3=0;         //右电机
+  38   1               IN4=1;
+  39   1               EN1=1;
+  40   1               EN2=1;
+  41   1      }
+  42          
+  43          void left()                                //左转函数
+  44          {
+  45   1           IN1=0;             //左电机
+  46   1               IN2=0;
+  47   1               IN3=1;         //右电机
+  48   1               IN4=0;
+  49   1               EN1=1;
+  50   1               EN2=1;
+  51   1      }
+  52          
+  53          void right()                       //右转函数
+  54          {
+C51 COMPILER V9.01   MAIN                                                                  01/02/2014 16:29:18 PAGE 2   
+
+  55   1           IN1=0;             //左电机
+  56   1               IN2=1;
+  57   1               IN3=0;         //右电机
+  58   1               IN4=0;
+  59   1               EN1=1;
+  60   1               EN2=1;
+  61   1      }
+  62          void stop()                                     //停止函数
+  63          {
+  64   1           IN1=0;             //左电机
+  65   1               IN2=0;
+  66   1               IN3=0;         //右电机
+  67   1               IN4=0;
+  68   1               EN1=1;
+  69   1               EN2=1;
+  70   1      }
+  71          /***************************主函数*****************************/
+  72          void main()
+  73          {
+  74   1              while(1)                          //while循环
+  75   1              {
+  76   2                      if(Key_B==0&&Key_D==0&&Key_A==1&&Key_C==0)      //A键被按下
+  77   2                      {
+  78   3                              forward();                                              //小车前进?
+  79   3                      }
+  80   2                      else if(Key_B==1&&Key_D==0&&Key_A==0&&Key_C==0) //B键被按下
+  81   2                      {
+  82   3                              right();                                                //小车右转
+  83   3                      }
+  84   2                      else if(Key_B==0&&Key_D==0&&Key_A==0&&Key_C==1) //C键被按下
+  85   2                      {
+  86   3                              left();                                         //小车左转
+  87   3                      }
+  88   2                      else if(Key_B==0&&Key_D==1&&Key_A==0&&Key_C==0) //D键被按下
+  89   2                      {
+  90   3                              back();                                 //小车后退      
+  91   3                      }
+  92   2                      else if(Key_B==0&&Key_D==1&&Key_A==0&&Key_C==1) //CD键同时被按下
+  93   2                      {
+  94   3                              stop();                                 //小车停止      
+  95   3                      }
+  96   2                      else
+  97   2                      {
+  98   3      //                      stop();
+  99   3                      }
+ 100   2              }        
+ 101   1      
+ 102   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    150    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
